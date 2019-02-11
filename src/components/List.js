@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import MUIList from '@material-ui/core/List';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -16,15 +16,16 @@ const styles = {
     }
 };
 const List = ({onCheckItem, list, checkedItems, classes}) => {
-    console.log(`${list.name} rendered`);
+    console.log(`${list.title} rendered`);
+    const [expanded, setExpanded] = useState(false);
     return (
-        <ExpansionPanel className={classes.list}>
+        <ExpansionPanel className={classes.list} onClick={() => setExpanded(true)}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
                 <Typography>{list.title}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
                 <MUIList>
-                    {list.items.map(item =>
+                    {expanded && list.items.map(item =>
                         <ListItem
                             checked={checkedItems[item.value] !== undefined}
                             onCheckItem={onCheckItem}

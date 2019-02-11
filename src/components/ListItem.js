@@ -4,7 +4,7 @@ import MUIListItem from '@material-ui/core/ListItem';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-const ListItem = ({onCheckItem, item, checked}) => {
+const ListItem = React.memo(({onCheckItem, item, checked}) => {
     console.log(`${item.value} rendered`);
     return (
         <MUIListItem>
@@ -13,7 +13,7 @@ const ListItem = ({onCheckItem, item, checked}) => {
             } label={item.name}/>
         </MUIListItem>
     )
-};
+});
 
 ListItem.propTypes = {
     item: PropTypes.object.isRequired,

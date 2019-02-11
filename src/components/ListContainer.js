@@ -37,6 +37,7 @@ class ListContainer extends React.Component {
         } else {
             delete checkedItems[value];
         }
+
         this.setState({checkedItems});
     };
 
