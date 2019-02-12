@@ -1,4 +1,4 @@
-Demo project for a Medium article.
+Demo project for a [Medium post](https://medium.com/@freshmilkdev/reactjs-render-optimization-for-collapsible-material-ui-long-list-with-checkboxes-231b36892e20). 
 
 ## Available Scripts
 
