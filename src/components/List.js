@@ -16,7 +16,7 @@ const styles = {
     }
 };
 const List = ({onCheckItem, list, checkedItems, classes}) => {
-    console.log(`${list.title} rendered`);
+    //hook to render list only when panel actually expanded
     const [expanded, setExpanded] = useState(false);
     return (
         <ExpansionPanel className={classes.list} onClick={() => setExpanded(true)}>
@@ -24,15 +24,16 @@ const List = ({onCheckItem, list, checkedItems, classes}) => {
                 <Typography>{list.title}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
+                {expanded &&
                 <MUIList>
-                    {expanded && list.items.map(item =>
+                    {list.items.map(item =>
                         <ListItem
                             checked={checkedItems[item.value] !== undefined}
                             onCheckItem={onCheckItem}
                             key={item.id}
                             item={item}/>
                     )}
-                </MUIList>
+                </MUIList>}
             </ExpansionPanelDetails>
         </ExpansionPanel>
     )

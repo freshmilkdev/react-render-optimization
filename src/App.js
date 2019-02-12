@@ -11,7 +11,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import ListContainer from './components/ListContainer';
 
 
-const HomeStub = () => <div>Home Page</div>;
+const HomeStub = () =>
+    <Typography variant='h6'>
+        Dummy page used to display render delay when navigating to a target page with a list.
+    </Typography>;
 
 const drawerWidth = 220;
 const styles = theme => ({

@@ -1,10 +1,7 @@
 import React from 'react';
 import List from './List';
 
-const createSourceData = () => {
-    const listCount = 10;
-    const listItemCount = 10;
-
+const createFakeDataSource = (listCount = 10, listItemCount = 10) => {
     let data = [];
     for (let i = 1; i <= listCount; i++) {
         let list = {};
@@ -20,14 +17,13 @@ const createSourceData = () => {
         }
         data.push(list);
     }
-
     return data;
 };
 
 class ListContainer extends React.Component {
     state = {
         checkedItems: {},
-        source: createSourceData()
+        source: createFakeDataSource()
     };
     handleCheckItem = (e) => {
         let {checkedItems} = this.state;
@@ -42,7 +38,6 @@ class ListContainer extends React.Component {
     };
 
     render() {
-        console.log('ListContainer rendered');
         return <React.Fragment>
             {
                 this.state.source.map(list =>
